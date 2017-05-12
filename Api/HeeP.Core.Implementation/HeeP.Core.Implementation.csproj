@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HeeP.Common\HeeP.Common.csproj" />
+    <ProjectReference Include="..\HeeP.Core\HeeP.Core.csproj" />
+    <ProjectReference Include="..\HeeP.Data\HeeP.Data.csproj" />
+    <ProjectReference Include="..\HeeP.Models\HeeP.Models.csproj" />
+  </ItemGroup>
+
+</Project>
