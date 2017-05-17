@@ -8,7 +8,13 @@ namespace HeeP.Data.EntityFrameworkImplementation.EntityMaps
     {
         public AccessMap(EntityTypeBuilder<Access> builder)
         {
-            builder.Property(p => p.RowVersion).IsConcurrencyToken();
+            builder
+                .HasKey(a => a.AccessId);
+
+            builder
+                .Property(p => p.RowVersion)
+                .IsConcurrencyToken()
+                .ValueGeneratedOnAddOrUpdate();            
         }
     }
 }

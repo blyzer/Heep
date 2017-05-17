@@ -8,7 +8,12 @@ namespace HeeP.Data.EntityFrameworkImplementation.EntityMaps
     {
         public RolMap(EntityTypeBuilder<Role> builder)
         {
-            builder.Property(p => p.RowVersion).IsConcurrencyToken()
+            builder
+                .Property(p => p.RowVersion)
+                .IsConcurrencyToken()
+                .ValueGeneratedOnAddOrUpdate();
+
+            builder
                 .HasMany(r => r.Access)
                 .WithMany(a => a.Roles)
                 .Map(ra => {

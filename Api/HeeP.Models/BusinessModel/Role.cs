@@ -8,7 +8,7 @@ namespace HeeP.Models.BusinessModel
         public string Description { get; set; }
         public bool Active { get; set; }
 
-        public virtual ICollection<Access> Access { get; set; }
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<RoleAccess> RoleAccesses { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

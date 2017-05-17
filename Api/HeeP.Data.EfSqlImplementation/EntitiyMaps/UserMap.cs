@@ -8,15 +8,14 @@ namespace HeeP.Data.EntityFrameworkImplementation.EntityMaps
     {
         public UserMap(EntityTypeBuilder<User> builder)
         {
-            builder.Property(p => p.RowVersion).IsConcurrencyToken()
-                .HasMany(u => u.Roles)
-                .WithMany(r => r.Users)
-                .Map(ur => {
-                    ur.MapLeftKey(nameof(User.UserId));
-                    ur.MapRightKey(nameof(Role.RoleId));
-                    ur.ToTable("UserRoles");
-                })
-                .Ignore(u => u.FullName);
+            builder
+                .HasKey(u => u.UserId);
+
+            builder
+                .Property(p => p.RowVersion)
+                .IsConcurrencyToken()
+                .ValueGeneratedOnAddOrUpdate();
+                //.Ignore(u => u.FullName);
             //Ignore(u => u.IdentificationTypeDescription);
         }
     }
